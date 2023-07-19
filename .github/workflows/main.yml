@@ -29,6 +29,10 @@ jobs:
   runs-on: ubuntu-latest
   needs: [my_testing]
   steps:
+   - name: AWS???
+     run: aws --version
+           lsb_release -a
+     
    - name: Print Dick
      run: echo "Dick word"
    - name: Cunt
