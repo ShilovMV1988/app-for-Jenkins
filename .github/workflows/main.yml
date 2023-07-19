@@ -30,8 +30,7 @@ jobs:
   needs: [my_testing]
   steps:
    - name: AWS???
-     run: aws --version
-           lsb_release -a
+     run: aws --version && lsb_release -a
      
    - name: Print Dick
      run: echo "Dick word"
