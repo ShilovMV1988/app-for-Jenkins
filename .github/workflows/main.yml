@@ -14,9 +14,14 @@ jobs:
   
   steps:
    - name: Print Hello
-     run: echo "Fuck word"   
+     run: echo "Fuck word"
+     
    - name : Fuck my dick
      run: echo "App name:${{ env.APP_NAME }}"
+     
+   - name: git clone
+     uses:  actions/checkout@v1
+     
    - name: Testing 
      run: ls -la
  
