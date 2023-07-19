@@ -14,9 +14,8 @@ jobs:
   
   steps:
    - name: Print Hello
-     run: echo "Fuck word"
-     
-   -name : Fuck my dick
+     run: echo "Fuck word"   
+   - name : Fuck my dick
      run: echo "App name: ${{ env.APP_NAME }} "
  
  my_deploy: 
