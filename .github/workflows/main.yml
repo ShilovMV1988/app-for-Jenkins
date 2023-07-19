@@ -12,4 +12,11 @@ jobs:
   steps:
    - name: Print Hello
      run: echo "Fuck word"
+        
+ 
+ my_deploy: 
+  runs-on: ubuntu-latest
+  steps:
+   - name: Print Dick
+     run: echo "Dick word"
 
