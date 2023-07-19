@@ -28,7 +28,19 @@ jobs:
  my_deploy: 
   runs-on: ubuntu-latest
   needs: [my_testing]
+  env:
+    VAR1 = "Varibel 1 it is"
+    VAR2 =  "Varibel 2 it is"
   steps:
+       
+   - name: PRINT STEPS VARIBEL
+      env:
+        VAR_LOCAL = "Varibel local it is"
+     run: |
+         echo "Var1 = ${{ env.VAR1 }}"
+         echo "Var2 = ${{ env.VAR2 }}"
+         echo "Var3 = $VAR_LOCAL"
+         
    - name: AWS??? Version Ubuntu 
      run: aws --version && lsb_release -a
      
