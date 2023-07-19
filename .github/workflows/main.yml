@@ -17,7 +17,7 @@ jobs:
      run: echo "Fuck word"   
    - name : Fuck my dick
      run: echo "App name:${{ env.APP_NAME }}"
-   - name: TEst dir
+   - name: Testing 
      run: ls -la
  
  my_deploy: 
