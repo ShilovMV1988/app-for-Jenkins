@@ -16,7 +16,7 @@ jobs:
    - name: Print Hello
      run: echo "Fuck word"   
    - name : Fuck my dick
-     run: echo "App name: ${{ env.APP_NAME }} "
+     run: echo "App name:${{ env.APP_NAME }}"
  
  my_deploy: 
   runs-on: ubuntu-latest
