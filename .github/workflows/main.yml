@@ -20,6 +20,7 @@ jobs:
           
    - name: Create ZIP Deploy Packege
      run: zip -r $ {{ env.DEPLOY_PACKEGE_NAME }} ./ -x *.git*
+          ls -la
      
    - name: Configure my AWS Credentials
      uses: aws-action/configure-aws-credentials@v1
