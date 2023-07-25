@@ -16,13 +16,13 @@ jobs:
   
    steps:
    - name: git clone our pero
-     uses:  actions/checkout@v1
+     uses:  actions/checkout@v1   
+          
+   - name: Create ZIP Deploy Packege
+     run: zip -r $ {{ env.DEPLOY_PACKEGE_NAME }} ./ -x *.git*
      
    - name: Print Hello
      run: echo "Fuck word"
-     
-   -name: Create ZIP Deploy Packege
-     run: zip -r ${{ env.DEPLOY_PACKEGE_NAME }} ./ -x *.git*
-     
+
  
 
