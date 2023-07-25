@@ -3,7 +3,7 @@ env:
   EB_PACKEGE_S3_BUCKET_NAME  : "github-tresh"
   EB_APPLICATION_NAME  : "Fuck"
   EB_ENVIRONMENT_NAME: "Fuck-env-2"
-  DEPLOY_PACKEGE_NAME :
+  DEPLOY_PACKEGE_NAME : ""
   AWS_REGION_NAME: "eu-north-1"
 
 on: 
@@ -12,7 +12,7 @@ on:
     - main
 jobs:
   my-ci-part: 
-  runs-on: ubuntu-latest 
+   runs-on: ubuntu-latest 
   
   steps:
    - name: git clone
