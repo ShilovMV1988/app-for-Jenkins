@@ -1,53 +1,25 @@
-name: CI
+name: CI-CDPipeline
 env:
-  APP_NAME  : "FUCK"
-  PAC_NAME  : "Fuck-deploy-ver-${{ github.sha }}"
-
+  EB_PACKEGE_S3_BUCKET_NAME  : "github-tresh"
+  EB_APPLICATION_NAME  : "Fuck"
+  EB_ENVIRONMENT_NAME: "Fuck-env-2"
+  DEPLOY_PACKEGE_NAME :
+  AWS_REGION_NAME: "eu-north-1"
 
 on: 
  push:
   branches:
     - main
 jobs:
- my_testing: 
+  my-ci-part: 
   runs-on: ubuntu-latest 
   
   steps:
-   - name: Print Hello
-     run: echo "Fuck word"
-     
-   - name : Fuck my dick
-     run: echo "App name:${{ env.APP_NAME }}"
-     
    - name: git clone
      uses:  actions/checkout@v1
      
-   - name: LS-LA
-     run: ls -la
+   - name: Print Hello
+     run: echo "Fuck word"
+     
  
- my_deploy: 
-  runs-on: ubuntu-latest
-  needs: [my_testing]
-  env:
-    VAR1 : "Varibel 1 it is"
-    VAR2 :  "Varibel 2 it is"
-  steps:
-       
-   - name: PRINT STEPS VARIBEL
-     run: |
-         echo "Var1 = ${{ env.VAR1 }}"
-         echo "Var2 = ${{ env.VAR2 }}"
-         echo "Var3 = $VAR_LOCAL"
-     env:
-        VAR_LOCAL : "Varibel local it is"         
-   - name: AWS??? Version Ubuntu 
-     run: aws --version && lsb_release -a
-     
-   - name: Zip 
-     run: zip
-     
-   - name: Print Dick
-     run: echo "Dick word"
-   - name: Cunt
-     run: echo "Pac name id ${{ env.PAC_NAME }}"
 
