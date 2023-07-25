@@ -3,7 +3,7 @@ env:
   EB_PACKEGE_S3_BUCKET_NAME  : "github-tresh"
   EB_APPLICATION_NAME  : "Fuck"
   EB_ENVIRONMENT_NAME: "Fuck-env-2"
-  DEPLOY_PACKEGE_NAME : ""
+  DEPLOY_PACKEGE_NAME : "flask_app_${{ github.sha }}.zip"
   AWS_REGION_NAME: "eu-north-1"
 
 on: 
@@ -15,11 +15,14 @@ jobs:
    runs-on: ubuntu-latest 
   
    steps:
-   - name: git clone
+   - name: git clone our pero
      uses:  actions/checkout@v1
      
    - name: Print Hello
      run: echo "Fuck word"
+     
+   -name: Create ZIP Deploy Packege
+    run: zip -r ${{ env.DEPLOY_PACKEGE_NAME }} ./ -x *.git*
      
  
 
