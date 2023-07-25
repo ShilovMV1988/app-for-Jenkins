@@ -22,7 +22,7 @@ jobs:
      run: echo "Fuck word"
      
    -name: Create ZIP Deploy Packege
-    run: zip -r ${{ env.DEPLOY_PACKEGE_NAME }} ./ -x *.git*
+     run: zip -r ${{ env.DEPLOY_PACKEGE_NAME }} ./ -x *.git*
      
  
 
