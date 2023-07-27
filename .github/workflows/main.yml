@@ -33,16 +33,30 @@ jobs:
      run: aws s3 cp ${{ env.DEPLOY_PACKEGE_NAME }} s3://${{ env.EB_PACKEGE_S3_BUCKET_NAME }} 
    
    - name: Print Happy Messege for CI
-     run:  echo "PIPELINE FINISHED"
+     run:  echo " CI PIPELINE FINISHED"
      
   my-cd-part: 
    runs-on: ubuntu-latest
    needs: [my-ci-part]
    steps:
+   
    - name: Configure my AWS Credentials
      uses: aws-action/configure-aws-credentials@v1
      with:
           aws-access-key-id       : ${{ secrets.AWS_KEY_STOHGOLM }}
           aws-secret-access-key  : ${{ secrets.AWS_SECRET_STOHGOLM }}
-          aws-region              : ${{ env.AWS_REGION_NAME }}   
-
+          aws-region              : ${{ env.AWS_REGION_NAME }}
+          
+   - name: Create new Elasticbeanstalk application  version
+     run: |
+      aws elasticbeanstalk  create-application-vession \
+      --application-name ${{ env.EB_APPLICATION_NAME }} \
+      --source-bandle S3Backet = "${{ env.EB_PACKEGE_S3_BUCKET_NAME }}", S3Key = "${{ env.DEPLOY_PACKEGE_NAME }}" \
+      --version-label "Ver-${{ github.sha }}" \
+      --description "Commit-${{ github.sha }}"
+      
+   - name: Deploy new Elasticbeanstalk application  version
+     run: aws elasticbeanstalk update-environment --environment-mame ${{ env.EB_ENVIRONMENT_NAME }} \
+       --version-label  "Ver-${{ github.sha }}"
+   - name: Print Happy Messege for CD
+     run:  echo "CD PIPELINE FINISHED"
